@@ -6,8 +6,8 @@ import (
 
 	"github.com/NilsPonsard/verbosity"
 	cli "github.com/jawher/mow.cli"
-	"github.com/nilsponsard/go-starter/internal/commands"
-	"github.com/nilsponsard/go-starter/pkg/files"
+	"github.com/nilsponsard/reaction-roles-bot-go/internal/commands"
+	"github.com/nilsponsard/reaction-roles-bot-go/pkg/files"
 )
 
 // Version will be set by the script build.sh
@@ -15,10 +15,10 @@ var version string
 
 func main() {
 
-	app := cli.App("go-starter", "starter project")
+	app := cli.App("reaction-roles-bot-go", "starter project")
 	app.Version("v version", version)
 
-	defaultPath := files.ParsePath("~/.go-starter/")
+	defaultPath := files.ParsePath("~/.reaction-roles-bot-go/")
 
 	// arguments
 

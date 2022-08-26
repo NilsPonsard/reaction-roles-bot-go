@@ -1,4 +1,4 @@
-module github.com/nilsponsard/go-starter
+module github.com/nilsponsard/reaction-roles-bot-go
 
 go 1.16
 
