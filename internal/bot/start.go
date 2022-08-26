@@ -25,5 +25,14 @@ func Connect() (session *discordgo.Session, err error) {
 	}
 	err = session.Open()
 
+	session.UpdateStatusComplex(discordgo.UpdateStatusData{
+		Activities: []*discordgo.Activity{
+			{
+				Name: "discordgo",
+				Type: discordgo.ActivityTypeGame,
+			},
+		},
+	})
+
 	return
 }
