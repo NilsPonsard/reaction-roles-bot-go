@@ -44,7 +44,7 @@ func (h *CommandsHandler) Handle(session *discordgo.Session, interaction *discor
 
 	summary, ok := h.summaries[name]
 	if !ok {
-		verbosity.Debug("Unknown command: %s", name)
+		verbosity.Debug("Unknown command:", name)
 		return
 	}
 	summary.Execute(session, interaction)
