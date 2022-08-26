@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"os"
 	"os/signal"
 
@@ -22,12 +21,12 @@ func main() {
 		verbosity.Fatal(err)
 	}
 
-	commands.Configure(session)
-
 	defer session.Close()
+
+	commands.Configure(session)
 
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt)
-	log.Println("Press Ctrl+C to exit")
+	verbosity.Info("Press Ctrl+C to exit")
 	<-stop
 }

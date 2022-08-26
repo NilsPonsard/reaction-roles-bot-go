@@ -2,8 +2,10 @@ package bot
 
 import (
 	"errors"
+	"fmt"
 	"os"
 
+	"github.com/NilsPonsard/verbosity"
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -23,6 +25,11 @@ func Connect() (session *discordgo.Session, err error) {
 	if err != nil {
 		return
 	}
+
+	session.AddHandler(func(s *discordgo.Session, r *discordgo.Ready) {
+		verbosity.Info(fmt.Sprintf("Logged in as: %v#%v", s.State.User.Username, s.State.User.Discriminator))
+	})
+
 	err = session.Open()
 
 	session.UpdateStatusComplex(discordgo.UpdateStatusData{
