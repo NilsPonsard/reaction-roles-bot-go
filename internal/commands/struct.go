@@ -14,7 +14,7 @@ func New(summaries []common.Summary) *CommandsHandler {
 	summariesMap := make(map[string]*common.Summary)
 
 	for _, summary := range summaries {
-		summariesMap[summary.Name] = &summary
+		summariesMap[summary.Command.Name] = &summary
 	}
 
 	return &CommandsHandler{

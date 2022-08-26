@@ -19,5 +19,11 @@ func Connect() (session *discordgo.Session, err error) {
 		return
 	}
 
-	return discordgo.New("Bot " + token)
+	session, err = discordgo.New("Bot " + token)
+	if err != nil {
+		return
+	}
+	err = session.Open()
+
+	return
 }

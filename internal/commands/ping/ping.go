@@ -11,10 +11,15 @@ var command = &discordgo.ApplicationCommand{
 }
 
 func execute(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: "Pong!",
+		},
+	})
 }
 
 var Summary = common.Summary{
-	Name:    "ping",
 	Command: command,
 	Execute: execute,
 }
